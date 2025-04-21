@@ -4,6 +4,7 @@
     list-style: none;
     text-decoration: none;
 }
+/*Navigation Bar*/
 .header{
     width: 100%;
     height: 80px;
@@ -20,6 +21,9 @@
     height: 100%;
     float: left;
     display: table;
+    }
+.logo_container:hover{
+  opacity: 0.8;
 }
 .logo_container h1{
     height: 100%;
@@ -30,6 +34,7 @@
     font-size: 32px;
     font-weight: 200;
     text-align: center;
+    
 }
 .logo_container h1 span{
     font-weight: 800;
@@ -55,7 +60,182 @@
 .navigation a:last-child{
     padding-right: 0;
 }
+.navigation a:hover{
+  opacity: 0.8;
+}
+
+/*About page*/
 .info_text{
-    margin: 2rem 20rem;
+    margin: 6rem 20rem;
     font-family: "Montserrat";
+}
+aside {
+  width: 30%;
+  padding-left: 15px;
+  margin-left: 15px;
+  float: right;
+  font-style: italic;
+  background-color: lightgray;
+}
+
+/*Footer*/
+footer{
+    font-size: 14px;
+    background-color: black;
+    font-family: "Montserrat";
+    color: white;
+    text-align: center;
+    padding: 3px;
+    display: block;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+
+
+}
+a{
+    color: white;
+}
+a:visited{
+    color: white;
+}
+a:hover{
+    color: grey;
+}
+a:active{
+    color: grey;
+}
+
+/*Contact*/
+#googlemaps {
+  height: 100%;
+  width: 100%;
+  position:absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Set z-index to 0 as it will be on a layer below the contact form */
+}
+
+#contactform {
+  position: relative;
+  z-index: 1; /* The z-index should be higher than Google Maps */
+  width: 300px;
+  margin: 60px auto 0;
+  padding: 10px;
+  background: black;
+  height: auto;
+  opacity: 0.6; /* Set the opacity for a slightly transparent Google Form */
+  color: white;
+}
+.message textarea {
+  height: 100px;
+  padding: 20px;
+}
+
+/*LoginForm*/
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+button {
+  background-color: black;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+.cancelBt {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 20%;
+  border-radius: 40%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+.formal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.formal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+.close {
+  position: absolute;
+  right: 13rem;
+  top: 10rem;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
 }

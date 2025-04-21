@@ -23,9 +23,55 @@
                 </ul>
             </div>
         </nav>
-        <div>
-            Home
+        <div class="inputForm">
+            <button onclick="document.getElementById('in1').style.display='block'" style="width: auto;">New Lane</button>
+            <div id="in1" class="formal">
+                <form action="" class="formal-content animate">
+                    <label for="puDate">Pickup Date</label>
+                    <input type="date" name="puDate" id="puDate">
+                    <label for="delDate">Delivery Date</label>
+                    <input type="date" name="delDate" id="delDate">
+                    <label for="puCity">Pickup City</label>
+                    <input type="text" name="puCity" id="puCity">
+                    <label for="delCity">Delivery City</label>
+                    <input type="text" name="delCity" id="delCity">
+                    <label for="rate">Rate</label>
+                    <input type="number" name="rate" id="rate">
+                    <label for="fullMiles">Full Miles</label>
+                    <input type="number" name="fullMiles" id="fullMiles">
+                    <label for="totalMiles">Total Miles</label>
+                    <input type="number" name="totalMiles" id="totalMiles">
+                    <label for="deadHead">Dead Head Miles</label>
+                    <input type="number" name="deadHead" id="deadHead">
+                    <label for="fuelCons">Fuel Consumption</label>
+                    <input type="number" name="fuelCons" id="fuelCons">
+                    <label for="rateMile">Rate per Mile</label>
+                    <input type="number" name="rateMile" id="rateMile">
+                    <label for="profitDriver">Total driver profit</label>
+                    <input type="number" name="profitDriver" id="profitDriver">
+                    <label for="profitDisp">Total dispatcher profit</label>
+                    <input type="number" name="profitDisp" id="profitDisp">
+                </form>
+            </div>
         </div>
+        <div class="subtotal">
+
+        </div>
+        <footer>
+            <p>Author: Dumitru Purcel</p>
+            <p><a href="mailto:dumitru32@gmail.com">dumitru32@gmail.com</a></p>
+            <script>
+                // Get the modal
+                var formal = document.getElementById('li1');
+                
+                // When the user clicks anywhere outside of the formal, close it
+                window.onclick = function(event) {
+                    if (event.target == formal) {
+                        modal.style.display = "none";
+                    }
+                }
+                </script> 
+        </footer>
     </body>
 
 </html>

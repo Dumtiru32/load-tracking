@@ -25,7 +25,64 @@
         </nav>
         <div>
             Contact
+            <div id="googlemaps">
+            </div>
+            <div id="info">
+              <form id="contactform">
+                <div class="name">
+                  <input type="text" id="name" placeholder="Your Name" />
+                </div>
+                <div class="email">
+                  <input type="text" id="email" placeholder="Your Email Address" />
+                </div>
+                <div class="message">
+                  <textarea name="message" id="message" placeholder="Your Message"></textarea>
+                </div>
+                <div class="submit">
+                 <input type="button" value="Contact" class="button" onclick="document.getElementById('message').value='This is a demo only.'" />
+                </div>
+              </form>
+            </div>
+
         </div>
+        <footer>
+            <p>Author: Dumitru Purcel</p>
+            <p><a href="mailto:dumitru32@gmail.com">dumitru32@gmail.com</a></p> 
+            <!-- Include the Google Maps API library - required for embedding maps -->
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+<script type="text/javascript">
+
+// The latitude and longitude of your business / place
+var position = [47.02279896863126, 28.82460303959509];
+
+function showGoogleMaps() {
+
+    var latLng = new google.maps.LatLng(position[0], position[1]);
+
+    var mapOptions = {
+        zoom: 16, // initialize zoom level - the max value is 21
+        streetViewControl: false, // hide the yellow Street View pegman
+        scaleControl: true, // allow users to zoom the Google Map
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        center: latLng
+    };
+
+    map = new google.maps.Map(document.getElementById('googlemaps'),
+        mapOptions);
+
+    // Show the default red marker at the location
+    marker = new google.maps.Marker({
+        position: latLng,
+        map: map,
+        draggable: false,
+        animation: google.maps.Animation.DROP
+    });
+}
+
+google.maps.event.addDomListener(window, 'load', showGoogleMaps);
+</script>
+        </footer>
     </body>
 
 </html>

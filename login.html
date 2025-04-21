@@ -24,8 +24,45 @@
             </div>
         </nav>
         <div>
-            Login
+            <h1>Login form</h1>
+            <button onclick="document.getElementById('li1').style.display='block'" style="width:auto">Login</button>
+            <div id="li1" class="formal">
+                <form class="formal-content animate" action="">
+                    <div class="img-container">
+                        <span onclick="document.getElementById('li1').style.display='none'" class="close" title="Close Formal">&times;</span>
+                        <img src="./images/avatar_icon_01png" alt="formal avatar image" class="avatar">
+                    </div>
+                    <div class="container">
+                        <label for="uname">Username</label>
+                        <input type="text" placeholder="Enter Username" name="uname" required>
+                        <label for="psw">Password</label>
+                        <input type="password" placeholder="Enter Password" name="psw" required>
+
+                        <button type="submit">Login</button>
+                    <div class="container" style="background-color: darkgrey;">
+                        <button onclick="document.getElementById('li1').style.display='none'" class="cancelBt">Cancel</button>
+                        <span class="psw">Forgot <a href="#">password?</a></span>
+                    </div>
+
+                    </div>
+                </form>
+            </div>
         </div>
+        <footer>
+            <p>Author: Dumitru Purcel</p>
+            <p><a href="mailto:dumitru32@gmail.com">dumitru32@gmail.com</a></p>
+            <script>
+                // Get the modal
+                var formal = document.getElementById('li1');
+                
+                // When the user clicks anywhere outside of the formal, close it
+                window.onclick = function(event) {
+                    if (event.target == formal) {
+                        modal.style.display = "none";
+                    }
+                }
+                </script> 
+        </footer>
     </body>
 
 </html>
