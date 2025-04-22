@@ -239,3 +239,39 @@ span.psw {
      width: 100%;
   }
 }
+
+/*Main page*/
+.proceedBt{
+  width: auto;
+  padding: 10px 18px;
+  background-color: black;
+  float: right;
+}
+table{
+  font-family: "Montserrat";
+  border-collapse: collapse;
+  width: 100%;
+}
+th {
+  border: 1px solid black;
+  text-align: left;
+  padding: 8px;
+  background-color: grey;
+  color: white;
+}
+td {
+  border: 1px solid black;
+  text-align: left;
+  padding: 8px;
+  background-color: white;
+  color: black;
+}
+#clearBt{
+  background-color: red;
+  color: white;
+  float: right;
+  font-style: "Montserrat";
+}
+#clearBt:hover{
+  opacity: 0.8;
+}

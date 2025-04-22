@@ -25,44 +25,72 @@
         </nav>
         <div class="inputForm">
             <button onclick="document.getElementById('in1').style.display='block'" style="width: auto;">New Lane</button>
+            <button onclick="localStorage.removeItem('loads'); location.reload()" style="width: auto;" id="clearBt" type="button">Clear all Lanes</button>
             <div id="in1" class="formal">
                 <form action="" class="formal-content animate">
+                    <label for="drivId">Dirver's ID</label>
+                    <input type="text" name="drivId" id="drivId">
+                    <label for="dispId">Dispatcher's ID</label>
+                    <input type="text" name="dispId" id="dispId">
                     <label for="puDate">Pickup Date</label>
-                    <input type="date" name="puDate" id="puDate">
+                    <input type="date" name="puDate" id="puDate" placeholder="Eneter pickup date">
                     <label for="delDate">Delivery Date</label>
-                    <input type="date" name="delDate" id="delDate">
+                    <input type="date" name="delDate" id="delDate" placeholder="Eneter delivery date">
                     <label for="puCity">Pickup City</label>
-                    <input type="text" name="puCity" id="puCity">
+                    <input type="text" name="puCity" id="puCity" placeholder="Eneter pickup City, coordinates">
                     <label for="delCity">Delivery City</label>
-                    <input type="text" name="delCity" id="delCity">
+                    <input type="text" name="delCity" id="delCity" placeholder="Eneter pickup City, coordinates">
                     <label for="rate">Rate</label>
-                    <input type="number" name="rate" id="rate">
+                    <input type="number" name="rate" id="rate" placeholder="Enter the Rate">
                     <label for="fullMiles">Full Miles</label>
-                    <input type="number" name="fullMiles" id="fullMiles">
+                    <input type="number" name="fullMiles" id="fullMiles" placeholder="Full miles">
                     <label for="totalMiles">Total Miles</label>
-                    <input type="number" name="totalMiles" id="totalMiles">
-                    <label for="deadHead">Dead Head Miles</label>
-                    <input type="number" name="deadHead" id="deadHead">
-                    <label for="fuelCons">Fuel Consumption</label>
-                    <input type="number" name="fuelCons" id="fuelCons">
-                    <label for="rateMile">Rate per Mile</label>
-                    <input type="number" name="rateMile" id="rateMile">
-                    <label for="profitDriver">Total driver profit</label>
-                    <input type="number" name="profitDriver" id="profitDriver">
-                    <label for="profitDisp">Total dispatcher profit</label>
-                    <input type="number" name="profitDisp" id="profitDisp">
+                    <input type="number" name="totalMiles" id="totalMiles" placeholder="Total miles with deadhead">
+                    <p id="deadHead"></p>
+                    <label for="fuelPrice">Fuel price</label>
+                    <input type="number" name="fuelPrice" id="fuelPrice" value="3.7">
+                    <p id="fuelCons"></p>
+                    <p id="rateMile"></p>
+                    <p id="profitDriver"></p>
+                    <label for="%profitDisp">% Dispatcher profit</label>
+                    <input type="number" name="%profitDisp" id="%profitDisp" value="5">
+                    <p id="profitDispatcher"></p>
+                    <div class="container" style="background-color: darkgrey;">
+                        <button type="button" onclick="document.getElementById('in1').style.display='none'" class="cancelBt">Cancel</button>
+                        <button type="button" onclick="addLoad()" class="proceedBt">Proceed</button>
                 </form>
             </div>
         </div>
         <div class="subtotal">
+            <table id="loadBord">
+                <tr>
+                    <th>Driver</th>
+                    <th>Dispatcher</th>
+                    <th>Pickup date</th>
+                    <th>Delivery date</th>
+                    <th>Pickup City</th>
+                    <th>Delivery City</th>
+                    <th>Rate</th>
+                    <th>Full Miles</th>
+                    <th>Total Miles</th>
+                    <th>Deadhead</th>
+                    <th>Fuel price</th>
+                    <th>Fuel cost</th>
+                    <th>Rate per mile</th>
+                    <th>Driver's profit</th>
+                    <th>Dispatcher's %</th>
+                    <th>Dispatcher's profit</th>
 
+                </tr>
+                
+            </table>
         </div>
         <footer>
             <p>Author: Dumitru Purcel</p>
             <p><a href="mailto:dumitru32@gmail.com">dumitru32@gmail.com</a></p>
             <script>
                 // Get the modal
-                var formal = document.getElementById('li1');
+                var formal = document.getElementById('in1');
                 
                 // When the user clicks anywhere outside of the formal, close it
                 window.onclick = function(event) {
@@ -72,6 +100,7 @@
                 }
                 </script> 
         </footer>
+        <script src="./script.js"></script>
     </body>
 
 </html>
