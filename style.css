@@ -5,7 +5,7 @@
     text-decoration: none;
 }
 /*Navigation Bar*/
-.header{
+/* .header{
     width: 100%;
     height: 80px;
     display: block;
@@ -21,6 +21,9 @@
     height: 100%;
     float: left;
     display: table;
+    vertical-align: middle;
+   
+   
     }
 .logo_container:hover{
   opacity: 0.8;
@@ -29,11 +32,11 @@
     height: 100%;
     display: table-cell;
     color: white;
-    vertical-align: middle;
+    padding-top: 1rem;
     font-family: "Montserrat";
     font-size: 32px;
     font-weight: 200;
-    text-align: center;
+    
     
 }
 .logo_container h1 span{
@@ -63,6 +66,84 @@
 .navigation a:hover{
   opacity: 0.8;
 }
+
+
+.navigation{
+  grid-column: 4;
+} */
+
+.header {
+  background-color: #1e1e1e;
+  padding: 10px 20px;
+  color: white;
+}
+
+.inner_header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 1000px;
+  flex-wrap: wrap; /* allows wrapping for small screens */
+}
+
+.logo_container h1{
+  height: 100%;
+  display: table-cell;
+  color: white;
+  
+  font-family: "Montserrat";
+  font-size: 32px;
+  font-weight: 200;
+ 
+  
+}
+.logo_container h1 span{
+  font-weight: 800;
+}
+.logo_container:hover{
+  opacity: 0.8;
+}
+
+.navigation {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+.navigation a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.navigation a:last-child{
+  padding-right: 0;
+}
+
+.navigation a:hover{
+  opacity: 0.8;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  .inner_header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navigation {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .navigation a {
+    width: 100%;
+  }
+} 
 
 /*About page*/
 .info_text{
@@ -118,24 +199,52 @@ a:active{
 }
 
 #contactform {
-  position: relative;
+  position:relative;
+  float: left;
   z-index: 1; /* The z-index should be higher than Google Maps */
   width: 300px;
   margin: 60px auto 0;
   padding: 10px;
   background: black;
   height: auto;
-  opacity: 0.6; /* Set the opacity for a slightly transparent Google Form */
+  opacity: 0.8; /* Set the opacity for a slightly transparent Google Form */
   color: white;
+  margin-left: 20px;
 }
+
+#contactform input{
+  width: 300px;
+}
+
+.linkContainer{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  padding-top: 10px;
+}
+
+img.social{
+  width: 3rem;
+  background-color: white;
+  border-radius: 40%;
+}
+
 .message textarea {
   height: 100px;
   padding: 20px;
 }
 
-/*LoginForm*/
+.linkContainer{
+
+}
+
+/*Forms*/
+  .legendClass{
+    resize: both;
+    overflow: auto;
+  }
 input[type=text], input[type=password] {
-  width: 100%;
+  width: 40em;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -179,11 +288,24 @@ span.psw {
   float: right;
   padding-top: 16px;
 }
-.formal {
+
+.inputForm{
+  display: none;
+  position: sticky;
+  width: 50%; /* Full width */
+  height: 10%; /* Full height */
+  z-index: 1;
+  vertical-align: middle;
+  padding-left: 20rem;
+  
+ 
+}
+
+.formal{
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  left: 0;
+  left: 0;  
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
@@ -192,6 +314,49 @@ span.psw {
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   padding-top: 60px;
 }
+.row{
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* 2 columns: label and input */
+  gap: 5px 10px;
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+}
+.row label {
+  text-align: right;
+  padding-right: 5px;
+  font-weight: bold;
+}
+
+.row input {
+  width: 70%;
+  padding: 6px;
+  box-sizing: border-box;
+}
+
+fieldset{
+  margin: 2em 0;
+  padding: 1em 2em;
+  border: solid 1px #ccc;
+  border-radius: 6px;
+  min-width: 200px;
+}
+
+legend{
+  font-size: 1.25em;
+  padding: 0 0.25em;
+  color: #000;
+  box-shadow: 5px 5px 5px black;
+}
+
+.column{
+  background-color: grey   ;
+  color: white;
+}
+.column::placeholder{
+  color: white
+}
+
 
 /* Modal Content/Box */
 .formal-content {
@@ -275,3 +440,7 @@ td {
 #clearBt:hover{
   opacity: 0.8;
 }
+
+
+
+

@@ -4,10 +4,21 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Load tracking</title>
+        <link rel="icon" type="image/x-icon" href="./images/frontal-truck.png">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./style.css" type="text/css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+
+        <script>
+        $(document).ready(function() {
+            $('loadBord').DataTable();
+        });
+        </script>
+       
     </head>
     <body>
         <nav class="header">
@@ -23,43 +34,51 @@
                 </ul>
             </div>
         </nav>
-        <div class="inputForm">
-            <button onclick="document.getElementById('in1').style.display='block'" style="width: auto;">New Lane</button>
+        <div class="form">
+            <button onclick="document.getElementById('in1').style.display='block'" style="width: auto;" style="float: left;">New Lane</button>
             <button onclick="localStorage.removeItem('loads'); location.reload()" style="width: auto;" id="clearBt" type="button">Clear all Lanes</button>
-            <div id="in1" class="formal">
-                <form action="" class="formal-content animate">
-                    <label for="drivId">Dirver's ID</label>
-                    <input type="text" name="drivId" id="drivId">
-                    <label for="dispId">Dispatcher's ID</label>
-                    <input type="text" name="dispId" id="dispId">
-                    <label for="puDate">Pickup Date</label>
-                    <input type="date" name="puDate" id="puDate" placeholder="Eneter pickup date">
-                    <label for="delDate">Delivery Date</label>
-                    <input type="date" name="delDate" id="delDate" placeholder="Eneter delivery date">
-                    <label for="puCity">Pickup City</label>
-                    <input type="text" name="puCity" id="puCity" placeholder="Eneter pickup City, coordinates">
-                    <label for="delCity">Delivery City</label>
-                    <input type="text" name="delCity" id="delCity" placeholder="Eneter pickup City, coordinates">
-                    <label for="rate">Rate</label>
-                    <input type="number" name="rate" id="rate" placeholder="Enter the Rate">
-                    <label for="fullMiles">Full Miles</label>
-                    <input type="number" name="fullMiles" id="fullMiles" placeholder="Full miles">
-                    <label for="totalMiles">Total Miles</label>
-                    <input type="number" name="totalMiles" id="totalMiles" placeholder="Total miles with deadhead">
-                    <p id="deadHead"></p>
-                    <label for="fuelPrice">Fuel price</label>
-                    <input type="number" name="fuelPrice" id="fuelPrice" value="3.7">
-                    <p id="fuelCons"></p>
-                    <p id="rateMile"></p>
-                    <p id="profitDriver"></p>
-                    <label for="%profitDisp">% Dispatcher profit</label>
-                    <input type="number" name="%profitDisp" id="%profitDisp" value="5">
-                    <p id="profitDispatcher"></p>
-                    <div class="container" style="background-color: darkgrey;">
-                        <button type="button" onclick="document.getElementById('in1').style.display='none'" class="cancelBt">Cancel</button>
-                        <button type="button" onclick="addLoad()" class="proceedBt">Proceed</button>
-                </form>
-            </div>
+            <section id="in1" class="inputForm animate">
+                <fieldset class="mainForm">
+                    <legend>Load details</legend>
+                        <form action="#" class="" method="post">
+                            <div class="row">
+                                <label for="drivId" id="label-driver" class="labelName">Dirver's ID</label>
+                                <input type="text" name="drivId" id="drivId" class="column" placeholder="Driver's ID">
+                                <label for="dispId" id="label-dispatcher" class="labelName">Dispatcher's ID</label>
+                                <input type="text" name="dispId" id="dispId" class="column" placeholder="Dispatcher's ID">
+                                <label for="puDate" id="label-puDate" class="labelName">Pickup Date</label>
+                                <input type="date" name="puDate" id="puDate" placeholder="Eneter pickup date" class="column">
+                                <label for="pickupTime" class="labelName">Pickup Time:</label>
+                                <input type="time" id="pickupTime" placeholder="Eneter pickup hour" class="column"/>
+                                <label for="delDate" id="label-delDate" class="labelName">Delivery Date</label>
+                                <input type="date" name="label-delDate" id="delDate" placeholder="Eneter delivery date" class="column">
+                                <label for="puCity" id="label-puCity" class="labelName">Pickup City</label>
+                                <input type="text" name="puCity" id="puCity" placeholder="Eneter pickup City, coordinates" class="column">
+                                <label for="delCity" id="label-delCity" class="labelName">Delivery City</label>
+                                <input type="text" name="delCity" id="delCity" placeholder="Eneter pickup City, coordinates" class="column">
+                                <label for="rate" id="label-rate" class="labelName">Rate</label>
+                                <input type="number" name="rate" id="rate" placeholder="Enter the Rate" class="column">
+                                <label for="fullMiles" id="label-fullMiles" class="labelName">Full Miles</label>
+                                <input type="number" name="fullMiles" id="fullMiles" placeholder="Full miles" class="column">
+                                <label for="totalMiles" id="label-totalMiles" class="labelName">Total Miles</label>
+                                <input type="number" name="totalMiles" id="totalMiles" placeholder="Total miles with deadhead" class="column">
+                                <label for="fuelPrice" id="label-fuelPrice" class="labelName">Fuel price</label>
+                                <input type="number" name="fuelPrice" id="fuelPrice" value="3.7" class="column">
+                                <label for="%profitDisp" id="label-profDisp" class="labelName">% Dispatcher profit</label>
+                                <input type="number" name="%profitDisp" id="profitDisp" value="5" class="column">
+                            </div>
+                            <p id="deadHead"></p>
+                            <p id="fuelCons"></p>
+                            <p id="rateMile"></p>
+                            <p id="eta"></p>
+                            <p id="profitDriver"></p>
+                            <p id="profitDispatcher"></p>
+                            <div class="container" style="background-color: darkgrey;">
+                            <button type="button" onclick="document.getElementById('in1').style.display='none'" class="cancelBt">Cancel</button>
+                            <button type="button" onclick="addLoad()" class="proceedBt">Proceed</button>
+                    </form>
+                </fieldset>
+            </section>
         </div>
         <div class="subtotal">
             <table id="loadBord">
@@ -67,6 +86,7 @@
                     <th>Driver</th>
                     <th>Dispatcher</th>
                     <th>Pickup date</th>
+                    <th>Pickup hour</th>
                     <th>Delivery date</th>
                     <th>Pickup City</th>
                     <th>Delivery City</th>
@@ -77,6 +97,7 @@
                     <th>Fuel price</th>
                     <th>Fuel cost</th>
                     <th>Rate per mile</th>
+                    <th>ETA</th>
                     <th>Driver's profit</th>
                     <th>Dispatcher's %</th>
                     <th>Dispatcher's profit</th>
