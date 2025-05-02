@@ -9,16 +9,10 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./style.css" type="text/css">
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
-
-        <script>
-        $(document).ready(function() {
-            $('loadBord').DataTable();
-        });
-        </script>
-       
+        <!--DataTable-->
+        <link rel="stylesheet" href="./lib/datatables/dataTables.css">
+        <script src="./lib/datatables/table2excel.js"></script>
+              
     </head>
     <body>
         <nav class="header">
@@ -36,6 +30,7 @@
         </nav>
         <div class="form">
             <button onclick="document.getElementById('in1').style.display='block'" style="width: auto;" style="float: left;">New Lane</button>
+            <button id="save2Excel" style="width: auto;" style="float: left;">Save to Excel</button>
             <button onclick="localStorage.removeItem('loads'); location.reload()" style="width: auto;" id="clearBt" type="button">Clear all Lanes</button>
             <section id="in1" class="inputForm animate">
                 <fieldset class="mainForm">
@@ -81,29 +76,32 @@
             </section>
         </div>
         <div class="subtotal">
-            <table id="loadBord">
-                <tr>
-                    <th>Driver</th>
-                    <th>Dispatcher</th>
-                    <th>Pickup date</th>
-                    <th>Pickup hour</th>
-                    <th>Delivery date</th>
-                    <th>Pickup City</th>
-                    <th>Delivery City</th>
-                    <th>Rate</th>
-                    <th>Full Miles</th>
-                    <th>Total Miles</th>
-                    <th>Deadhead</th>
-                    <th>Fuel price</th>
-                    <th>Fuel cost</th>
-                    <th>Rate per mile</th>
-                    <th>ETA</th>
-                    <th>Driver's profit</th>
-                    <th>Dispatcher's %</th>
-                    <th>Dispatcher's profit</th>
+            <table id="loadBordHead" class="display">
+                <thead>
+                    <tr>
+                        <th>Driver</th>
+                        <th>Dispatcher</th>
+                        <th>Pickup date</th>
+                        <th>Pickup hour</th>
+                        <th>Delivery date</th>
+                        <th>Pickup City</th>
+                        <th>Delivery City</th>
+                        <th>Rate</th>
+                        <th>Full Miles</th>
+                        <th>Total Miles</th>
+                        <th>Deadhead</th>
+                        <th>Fuel price</th>
+                        <th>Fuel cost</th>
+                        <th>Rate per mile</th>
+                        <th>ETA</th>
+                        <th>Driver's profit</th>
+                        <th>Dispatcher's %</th>
+                        <th>Dispatcher's profit</th>
+                    </tr>
+                </thead>
+                <tbody id="loadBord">
 
-                </tr>
-                
+                </tbody>
             </table>
         </div>
         <footer>
@@ -122,6 +120,23 @@
                 </script> 
         </footer>
         <script src="./script.js"></script>
+        <!--jQuery-->
+        <script src="./lib/jQuery/jquery-3.7.1.js"></script>
+        <!--DataTable-->
+        <script src="./lib/datatables/dataTables.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#loadBordHead').DataTable();
+            });
+            </script>
+        <!--Data2Excel-->
+        
+        <script>
+            document.getElementById('save2Excel').addEventListener( 'click', function() {
+            var table2excel = new Table2Excel();
+            table2excel.export(document.querySelectorAll("#loadBordHead"));
+            })
+          </script>
     </body>
 
 </html>

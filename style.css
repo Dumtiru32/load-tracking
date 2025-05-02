@@ -4,6 +4,9 @@
     list-style: none;
     text-decoration: none;
 }
+body{
+  padding: 5px;
+}
 /*Navigation Bar*/
 /* .header{
     width: 100%;
